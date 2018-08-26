@@ -33,8 +33,8 @@ function renderZurichMap(d3, topojson, sszvis, filename) {
       _: function(width) {
         var innerHeight = sszvis.aspectRatioSquare(width);
         return {
-          top: 80,
-          bottom: 90,
+          top: -3,
+          bottom: 0,
           height: 80 + innerHeight + 90
         }
       }
@@ -146,7 +146,7 @@ function renderZurichMap(d3, topojson, sszvis, filename) {
   loadFileData(filename);
   //actions.prepareState(jsonData);
 
-  d3.json('../topo/stadt-zurich.json')
+  d3.json('topo/stadt-zurich.json')
     .get(function(error, data) {
       if (error) {
         sszvis.loadError(error);
@@ -192,8 +192,8 @@ function renderZurichMap(d3, topojson, sszvis, filename) {
 
     var control = sszvis.buttonGroup()
       .values(state.years)
-      .width(props.controlWidth)
-      .current(state.currentYear)
+      .width(0)
+      //.current(state.currentYear)
       .change(actions.setYear);
 
     var choroplethMap = sszvis.choropleth()

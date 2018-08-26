@@ -27,12 +27,12 @@
                 height: 2.5em;
                 line-height: 1.5em;
                 color: blue;
+                /*font-weight:bold;*/
             }
         .ui-state-highlight {
             height: 1.5em;
             line-height: 1.5em;
-            background-color: #f2f2f2;
-            border:0;
+            background-color: lemonchiffon;
         }
         .ui-state-default {
             background-color: #ffffff;
@@ -45,7 +45,7 @@
                 cursor: pointer;
             }
             .filterList{
-                margin-bottom:3em !important; min-width:200px !important; 
+                margin-bottom:3em !important;
             }
 
         .rank {
@@ -57,23 +57,6 @@
             font-weight: bold;
             font-size: 1.1em;
         }
-
-        @media screen and (max-width: 800px) {
-            #sortable {
-                width: 90%;
-            }
-        }
-
-        h1 {
-            margin-top:1em;
-            color: #ff00ff;
-            font-weight: bold;
-            font-size: 2.5em;
-        }
-        h2 {color:#ff00ff; font-size:2em; }
-        h3 {color:#0000ff; font-weight: bold;font-size: 2em;}
-        #doTheShow{display:none;}
-        .contImage{max-width:100%;}
     </style>
 </head>
 
@@ -101,37 +84,23 @@
                         <li id="shopping" class="ui-state-default">Shopping</li>
                     </ul>
                 </div>
-                <div class="col-md-9 map"><div onclick="doTheShowTheImage()" id="sszvis-chart"></div></div>
-                <!--<div class="col-md-9 map"><img onclick="doTheShowTheImage()" src="assets/img/Zurich-quarter-map.png" width="90%"></div>-->
+                <div class="col-md-9 map"><div id="sszvis-chart"></div></div>
             </div>
-            <div class="row" id="doTheShow">
+            <div class="row">
                 <div class="col-md-12">
-                    <h1>Escher Wyss quarter</h1>
-                    <h2>Kreis 5</h2>
-                    <p>
-                        Escher Wyss ist ein Quartier in der Schweizer Stadt Zürich im Stadtkreis 5 (Industriequartier).
-                        Im Norden bildet die Limmat die Grenze des Quartiers. Nach Osten wird er durch den Eisenbahn-Viadukt der
-                        Wipkinger-Linie und im Süden durch die Bahngleise begrenzt.
+                    <h2>Escher Wyss</h2>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+                    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
                     </p>
                     <p>
-                        Im Westen endet das Quartier kurz hinter dem Fussballstadion Hardturm.
-                    </p>
-                    <h3>Environment</h3>
-                    <p>
-                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                        no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    </p>
-                    <p>
-                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                        no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    </p>
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+                    no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
-                <img class="contImage" src="assets/img/Detailspage.png" />
             </div>
         </div>
-    </div>
+     </div>
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="https://twist2018.slack.com" target="_blank"><i class="fab fa-slack-hash"></i></a><a href="https://twitter.com/twist2018" target="_blank"><i class="icon ion-social-twitter"></i></a></div>
@@ -145,16 +114,24 @@
             <p class="copyright">©&nbsp;<a href="https://www.twist2018.ch" target="_blank">Twist2018<br></a></p>
         </footer>
     </div>
+
+
+
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/jqPunch.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="sszvis.css" rel="stylesheet">
-    <script src="https://unpkg.com/d3@4/build/d3.min.js"></script>
-    <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
-    <script src="sszvis.js"></script>
-    <script src="zurichMap.js"></script>
+
+    
+<link href="sszvis.css" rel="stylesheet">
+<script src="https://unpkg.com/d3@4/build/d3.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="sszvis.js"></script>
+<script src="zurichMap.js"></script>
+
+
     <script>
         $(function () {
             $("#sortable").sortable({
@@ -177,14 +154,12 @@
             else if (sorTwist[0] == 'diversity') zurichMap('data3.csv');
             else if (sorTwist[0] == 'rent') zurichMap('data4.csv');
             else if (sorTwist[0] == 'shopping') zurichMap('data5.csv');
+            
+            console.log(sorTwist);
+            //console.log(sorTwist[0]); console.log(sorTwist[1]); ...
+            //...
         }
-        /**************************************************************************************/
-
-        function doTheShowTheImage() {
-            document.getElementById("doTheShow").style.display = "inline-block";
-            $('html, body').animate({ scrollTop: 680 }, 'slow');
-        }
-
+            /**************************************************************************************/
     </script>
 </body>
 
